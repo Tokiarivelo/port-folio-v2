@@ -21,7 +21,7 @@ export function Navigation({ className }: NavigationProps) {
   const { currentSection, isMenuOpen, navigateTo, toggleMenu, closeMenu } = useNavigation();
 
   return (
-    <nav className={cn('fixed top-0 left-0 right-0 z-50 bg-[var(--color-background)]/80 backdrop-blur-sm border-b border-[var(--color-border)]', className)}>
+    <nav className={cn('fixed top-0 left-0 right-0 z-50 bg-[var(--color-background)]/60 backdrop-blur-md border-b border-[var(--color-border)]/50', className)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

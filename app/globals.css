@@ -3,34 +3,45 @@
 @theme {
   --font-family: 'Inter', sans-serif;
   
-  --color-background: #ffffff;
-  --color-foreground: #09090b;
-  --color-card: #ffffff;
-  --color-card-foreground: #09090b;
-  --color-primary: #18181b;
-  --color-primary-foreground: #fafafa;
-  --color-secondary: #f4f4f5;
-  --color-secondary-foreground: #18181b;
-  --color-muted: #f4f4f5;
-  --color-muted-foreground: #71717a;
-  --color-accent: #f4f4f5;
-  --color-accent-foreground: #18181b;
-  --color-border: #e4e4e7;
+  /* Nature-inspired teal/turquoise palette */
+  --color-background: #0d4d4d;
+  --color-foreground: #e0f2f1;
+  --color-card: rgba(255, 255, 255, 0.05);
+  --color-card-foreground: #e0f2f1;
+  --color-primary: #7dd3c0;
+  --color-primary-foreground: #004d40;
+  --color-secondary: #26a69a;
+  --color-secondary-foreground: #e0f2f1;
+  --color-muted: rgba(255, 255, 255, 0.1);
+  --color-muted-foreground: #80cbc4;
+  --color-accent: #4db6ac;
+  --color-accent-foreground: #e0f2f1;
+  --color-border: rgba(255, 255, 255, 0.1);
   --radius: 0.5rem;
+  
+  /* Gradient colors for nature scene */
+  --gradient-start: #004d40;
+  --gradient-middle: #00796b;
+  --gradient-end: #4db6ac;
+  
+  /* Nature elements */
+  --moon-glow: #7dd3c0;
+  --plant-dark: #003d33;
+  --plant-medium: #00695c;
 }
 
 .dark {
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  --color-card: #09090b;
-  --color-card-foreground: #fafafa;
-  --color-primary: #fafafa;
-  --color-primary-foreground: #18181b;
-  --color-secondary: #27272a;
-  --color-secondary-foreground: #fafafa;
-  --color-muted: #27272a;
-  --color-muted-foreground: #a1a1aa;
-  --color-accent: #27272a;
-  --color-accent-foreground: #fafafa;
-  --color-border: #27272a;
+  --color-background: #002b2b;
+  --color-foreground: #e0f2f1;
+  --color-card: rgba(255, 255, 255, 0.03);
+  --color-card-foreground: #e0f2f1;
+  --color-primary: #7dd3c0;
+  --color-primary-foreground: #004d40;
+  --color-secondary: #004d40;
+  --color-secondary-foreground: #e0f2f1;
+  --color-muted: rgba(255, 255, 255, 0.08);
+  --color-muted-foreground: #4db6ac;
+  --color-accent: #26a69a;
+  --color-accent-foreground: #e0f2f1;
+  --color-border: rgba(255, 255, 255, 0.08);
 }
