@@ -4,7 +4,7 @@ export function NatureHero() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#004d40] via-[#00796b] to-[#4db6ac]">
       {/* Cloud layers */}
-      <div className="absolute top-0 left-0 w-full h-1/3 opacity-30">
+      <div className="absolute top-0 left-0 w-full h-1/3 opacity-30 animate-[drift_40s_ease-in-out_infinite]">
         <svg className="absolute top-10 left-10" width="200" height="60" viewBox="0 0 200 60">
           <ellipse cx="50" cy="30" rx="50" ry="30" fill="#003d33" opacity="0.4" />
           <ellipse cx="100" cy="25" rx="60" ry="25" fill="#003d33" opacity="0.5" />
@@ -20,14 +20,14 @@ export function NatureHero() {
       {/* Glowing Moon */}
       <div className="absolute left-[10%] md:left-[15%] top-[15%] md:top-[20%]">
         {/* Outer glow */}
-        <div className="absolute inset-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#7dd3c0] opacity-30 blur-3xl"></div>
+        <div className="absolute inset-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#7dd3c0] opacity-30 blur-3xl animate-pulse"></div>
         {/* Middle glow */}
-        <div className="absolute inset-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#a5f3e0] opacity-40 blur-2xl animate-pulse"></div>
+        <div className="absolute inset-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#a5f3e0] opacity-40 blur-2xl animate-[pulse_3s_ease-in-out_infinite]"></div>
         {/* Moon */}
-        <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-radial from-[#c8faf0] to-[#7dd3c0] shadow-2xl"></div>
+        <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-radial from-[#c8faf0] to-[#7dd3c0] shadow-2xl shadow-[#7dd3c0]/50"></div>
       </div>
 
-      {/* Hill/Ground silhouette */}
+      {/* Hill/Ground silhouette with wave */}
       <div className="absolute bottom-0 left-0 w-full">
         <svg viewBox="0 0 1440 400" className="w-full h-auto">
           <path 
@@ -39,7 +39,7 @@ export function NatureHero() {
       </div>
 
       {/* Small character on the hill */}
-      <div className="absolute bottom-[25%] left-[12%] md:left-[15%] z-20">
+      <div className="absolute bottom-[25%] left-[12%] md:left-[15%] z-20 animate-[bounce_6s_ease-in-out_infinite]">
         <svg width="40" height="60" viewBox="0 0 40 60">
           {/* Simple character silhouette */}
           <rect x="15" y="20" width="10" height="15" fill="#c62828" rx="2" />
@@ -74,6 +74,10 @@ export function NatureHero() {
           <g opacity="0.85">
             <ellipse cx="200" cy="300" rx="120" ry="180" fill="#002b24" transform="rotate(25 200 300)" />
             <ellipse cx="250" cy="280" rx="100" ry="160" fill="#003d33" transform="rotate(15 250 280)" />
+            {/* Leaf veins/cuts */}
+            <path d="M250,200 Q250,250 250,300" stroke="#002118" strokeWidth="3" fill="none" opacity="0.5" />
+            <path d="M230,220 Q240,260 250,300" stroke="#002118" strokeWidth="2" fill="none" opacity="0.4" />
+            <path d="M270,220 Q260,260 250,300" stroke="#002118" strokeWidth="2" fill="none" opacity="0.4" />
           </g>
           {/* Banana leaves */}
           <g opacity="0.9">
@@ -88,8 +92,8 @@ export function NatureHero() {
 
       {/* Additional tropical plant on right - back layer */}
       <div className="absolute top-[10%] right-[5%] z-5">
-        <svg width="300" height="400" viewBox="0 0 300 400" className="w-[200px] md:w-[300px] h-auto">
-          <g opacity="0.4">
+        <svg width="300" height="400" viewBox="0 0 300 400" className="w-[200px] md:w-[300px] h-auto opacity-40">
+          <g>
             {/* Palm-like leaves */}
             <ellipse cx="150" cy="150" rx="100" ry="140" fill="#00332b" transform="rotate(10 150 150)" />
             <ellipse cx="200" cy="130" rx="90" ry="130" fill="#003d33" transform="rotate(-15 200 130)" />
@@ -109,23 +113,31 @@ export function NatureHero() {
         </svg>
       </div>
 
+      {/* Firefly/Light particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[40%] left-[20%] w-2 h-2 bg-[#c8faf0] rounded-full opacity-60 animate-[twinkle_3s_ease-in-out_infinite]"></div>
+        <div className="absolute top-[35%] left-[25%] w-1 h-1 bg-[#a5f3e0] rounded-full opacity-40 animate-[twinkle_4s_ease-in-out_infinite_0.5s]"></div>
+        <div className="absolute top-[50%] right-[30%] w-1.5 h-1.5 bg-[#c8faf0] rounded-full opacity-50 animate-[twinkle_3.5s_ease-in-out_infinite_1s]"></div>
+        <div className="absolute top-[45%] right-[35%] w-1 h-1 bg-[#a5f3e0] rounded-full opacity-30 animate-[twinkle_4.5s_ease-in-out_infinite_1.5s]"></div>
+      </div>
+
       {/* Content overlay */}
       <div className="relative z-40 flex items-center justify-center min-h-screen px-4 py-20">
         <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 text-white">
+          <div className="space-y-6 text-white animate-[fadeInUp_1s_ease-out]">
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               Welcome to
               <br />
-              <span className="text-[#c8faf0]">My Journey</span>
+              <span className="text-[#c8faf0] drop-shadow-[0_0_30px_rgba(125,211,192,0.5)]">My Journey</span>
             </h1>
             <p className="text-xl text-[#a5f3e0] leading-relaxed">
               Exploring creativity, technology, and nature-inspired design
             </p>
             <div className="flex gap-4 pt-4">
-              <button className="px-8 py-3 bg-[#7dd3c0] text-[#004d40] rounded-lg font-semibold hover:bg-[#a5f3e0] transition-all shadow-lg hover:shadow-xl">
+              <button className="px-8 py-3 bg-[#7dd3c0] text-[#004d40] rounded-lg font-semibold hover:bg-[#a5f3e0] transition-all shadow-lg hover:shadow-xl hover:scale-105 transform">
                 Explore Work
               </button>
-              <button className="px-8 py-3 border-2 border-[#7dd3c0] text-[#c8faf0] rounded-lg font-semibold hover:bg-[#7dd3c0]/10 transition-all">
+              <button className="px-8 py-3 border-2 border-[#7dd3c0] text-[#c8faf0] rounded-lg font-semibold hover:bg-[#7dd3c0]/10 transition-all hover:scale-105 transform">
                 Get in Touch
               </button>
             </div>
@@ -133,6 +145,27 @@ export function NatureHero() {
           <div className="hidden lg:block"></div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes drift {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(20px); }
+        }
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.8; }
+        }
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }
