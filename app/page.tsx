@@ -20,7 +20,7 @@ export default function Home() {
       <Navigation />
 
       {/* Theme Toggle - Fixed position */}
-      <div className="fixed top-20 right-4 z-50">
+      <div className="fixed top-20 right-4 z-[60]">
         <ThemeToggle />
       </div>
 

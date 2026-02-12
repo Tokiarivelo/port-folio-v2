@@ -2,7 +2,7 @@
 
 export function NatureHero() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#004d40] via-[#00796b] to-[#4db6ac]">
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[var(--gradient-start)] via-[var(--gradient-middle)] to-[var(--gradient-end)]">
       {/* Cloud layers */}
       <div className="absolute top-0 left-0 w-full h-1/3 opacity-30 animate-[drift_40s_ease-in-out_infinite]">
         <svg className="absolute top-10 left-10" width="200" height="60" viewBox="0 0 200 60">
@@ -20,11 +20,11 @@ export function NatureHero() {
       {/* Glowing Moon */}
       <div className="absolute left-[10%] md:left-[15%] top-[15%] md:top-[20%]">
         {/* Outer glow */}
-        <div className="absolute inset-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#7dd3c0] opacity-30 blur-3xl animate-pulse"></div>
+        <div className="absolute inset-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-[var(--moon-glow)] opacity-30 blur-3xl animate-pulse"></div>
         {/* Middle glow */}
-        <div className="absolute inset-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#a5f3e0] opacity-40 blur-2xl animate-[pulse_3s_ease-in-out_infinite]"></div>
+        <div className="absolute inset-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-[var(--moon-glow)] opacity-40 blur-2xl animate-[pulse_3s_ease-in-out_infinite]"></div>
         {/* Moon */}
-        <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-radial from-[#c8faf0] to-[#7dd3c0] shadow-2xl shadow-[#7dd3c0]/50"></div>
+        <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-radial from-[var(--moon-glow)] to-[var(--color-primary)] shadow-2xl shadow-[var(--moon-glow)]/50"></div>
       </div>
 
       {/* Hill/Ground silhouette with wave */}
@@ -115,10 +115,10 @@ export function NatureHero() {
 
       {/* Firefly/Light particles */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[40%] left-[20%] w-2 h-2 bg-[#c8faf0] rounded-full opacity-60 animate-[twinkle_3s_ease-in-out_infinite]"></div>
-        <div className="absolute top-[35%] left-[25%] w-1 h-1 bg-[#a5f3e0] rounded-full opacity-40 animate-[twinkle_4s_ease-in-out_infinite_0.5s]"></div>
-        <div className="absolute top-[50%] right-[30%] w-1.5 h-1.5 bg-[#c8faf0] rounded-full opacity-50 animate-[twinkle_3.5s_ease-in-out_infinite_1s]"></div>
-        <div className="absolute top-[45%] right-[35%] w-1 h-1 bg-[#a5f3e0] rounded-full opacity-30 animate-[twinkle_4.5s_ease-in-out_infinite_1.5s]"></div>
+        <div className="absolute top-[40%] left-[20%] w-2 h-2 bg-[var(--moon-glow)] rounded-full opacity-60 animate-[twinkle_3s_ease-in-out_infinite]"></div>
+        <div className="absolute top-[35%] left-[25%] w-1 h-1 bg-[var(--moon-glow)] rounded-full opacity-40 animate-[twinkle_4s_ease-in-out_infinite_0.5s]"></div>
+        <div className="absolute top-[50%] right-[30%] w-1.5 h-1.5 bg-[var(--moon-glow)] rounded-full opacity-50 animate-[twinkle_3.5s_ease-in-out_infinite_1s]"></div>
+        <div className="absolute top-[45%] right-[35%] w-1 h-1 bg-[var(--moon-glow)] rounded-full opacity-30 animate-[twinkle_4.5s_ease-in-out_infinite_1.5s]"></div>
       </div>
 
       {/* Content overlay */}
@@ -128,16 +128,16 @@ export function NatureHero() {
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               Welcome to
               <br />
-              <span className="text-[#c8faf0] drop-shadow-[0_0_30px_rgba(125,211,192,0.5)]">My Journey</span>
+              <span className="text-[var(--color-foreground)] drop-shadow-[0_0_30px_rgba(125,211,192,0.5)]">My Journey</span>
             </h1>
-            <p className="text-xl text-[#a5f3e0] leading-relaxed">
+            <p className="text-xl text-[var(--color-muted-foreground)] leading-relaxed">
               Exploring creativity, technology, and nature-inspired design
             </p>
             <div className="flex gap-4 pt-4">
-              <button className="px-8 py-3 bg-[#7dd3c0] text-[#004d40] rounded-lg font-semibold hover:bg-[#a5f3e0] transition-all shadow-lg hover:shadow-xl hover:scale-105 transform">
+              <button className="px-8 py-3 bg-[var(--color-primary)] text-[var(--color-primary-foreground)] rounded-lg font-semibold hover:bg-[var(--color-accent)] transition-all shadow-lg hover:shadow-xl hover:scale-105 transform">
                 Explore Work
               </button>
-              <button className="px-8 py-3 border-2 border-[#7dd3c0] text-[#c8faf0] rounded-lg font-semibold hover:bg-[#7dd3c0]/10 transition-all hover:scale-105 transform">
+              <button className="px-8 py-3 border-2 border-[var(--color-primary)] text-[var(--color-foreground)] rounded-lg font-semibold hover:bg-[var(--color-primary)]/10 transition-all hover:scale-105 transform">
                 Get in Touch
               </button>
             </div>
