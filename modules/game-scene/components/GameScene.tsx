@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useMemo } from 'react';
 import { useParallaxScroll } from '../hooks/useParallaxScroll';
 import { useSceneTransition } from '../hooks/useSceneTransition';
 import { Character } from '@/modules/character/components/Character';
@@ -8,19 +8,37 @@ import { Character } from '@/modules/character/components/Character';
 export function GameScene() {
   const { scrollProgress, getLayerTransform } = useParallaxScroll();
   const { colors, moonOpacity, starOpacity } = useSceneTransition(scrollProgress);
-  const sceneRef = useRef<HTMLDivElement>(null);
 
-  // Generate stars
-  const stars = Array.from({ length: 100 }, (_, i) => ({
+  // Generate stars once
+  const stars = useMemo(() => Array.from({ length: 100 }, (_, i) => ({
     id: i,
     x: Math.random() * 200,
     y: Math.random() * 60,
     size: Math.random() * 2 + 1,
     opacity: Math.random() * 0.5 + 0.5,
-  }));
+  })), []);
+
+  // Generate tree configurations once
+  const backgroundTrees = useMemo(() => Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    position: i * 12,
+    height: Math.random() * 100 + 150,
+  })), []);
+
+  const midgroundTrees = useMemo(() => Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    position: i * 14,
+    height: Math.random() * 120 + 180,
+  })), []);
+
+  const foregroundTrees = useMemo(() => Array.from({ length: 10 }, (_, i) => ({
+    id: i,
+    position: i * 18,
+    height: Math.random() * 150 + 200,
+  })), []);
 
   return (
-    <div ref={sceneRef} className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden">
       {/* Sky Background with Gradient */}
       <div 
         className="fixed inset-0 transition-colors duration-1000"
@@ -123,17 +141,17 @@ export function GameScene() {
         className="absolute bottom-0 left-0 w-[250%] h-full pointer-events-none"
         style={{ transform: getLayerTransform(0.5) }}
       >
-        {Array.from({ length: 20 }, (_, i) => (
+        {backgroundTrees.map((tree) => (
           <div
-            key={i}
+            key={tree.id}
             className="absolute bottom-0"
             style={{
-              left: `${i * 12}%`,
+              left: `${tree.position}%`,
               transform: 'translateX(-50%)',
             }}
           >
             <Tree 
-              height={Math.random() * 100 + 150}
+              height={tree.height}
               color={colors.foreground}
               opacity={0.3}
             />
@@ -146,17 +164,17 @@ export function GameScene() {
         className="absolute bottom-0 left-0 w-[200%] h-full pointer-events-none"
         style={{ transform: getLayerTransform(0.7) }}
       >
-        {Array.from({ length: 15 }, (_, i) => (
+        {midgroundTrees.map((tree) => (
           <div
-            key={i}
+            key={tree.id}
             className="absolute bottom-0"
             style={{
-              left: `${i * 14}%`,
+              left: `${tree.position}%`,
               transform: 'translateX(-50%)',
             }}
           >
             <Tree 
-              height={Math.random() * 120 + 180}
+              height={tree.height}
               color={colors.foreground}
               opacity={0.5}
             />
@@ -187,17 +205,17 @@ export function GameScene() {
         className="absolute bottom-0 left-0 w-[180%] h-full pointer-events-none"
         style={{ transform: getLayerTransform(0.9) }}
       >
-        {Array.from({ length: 10 }, (_, i) => (
+        {foregroundTrees.map((tree) => (
           <div
-            key={i}
+            key={tree.id}
             className="absolute bottom-0"
             style={{
-              left: `${i * 18}%`,
+              left: `${tree.position}%`,
               transform: 'translateX(-50%)',
             }}
           >
             <Tree 
-              height={Math.random() * 150 + 200}
+              height={tree.height}
               color={colors.foreground}
               opacity={0.8}
             />
