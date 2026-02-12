@@ -11,7 +11,7 @@ export interface ParallaxLayer {
 export function useParallaxScroll() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const scrollTimeoutRef = useRef<number | null>(null);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rafRef = useRef<number | null>(null);
 
   const updateScroll = useCallback(() => {
@@ -28,7 +28,7 @@ export function useParallaxScroll() {
         clearTimeout(scrollTimeoutRef.current);
       }
       
-      scrollTimeoutRef.current = window.setTimeout(() => {
+      scrollTimeoutRef.current = setTimeout(() => {
         setIsScrolling(false);
       }, 150);
 
